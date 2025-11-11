@@ -48,7 +48,7 @@ if (!isset($_SESSION['login_user'])) {
     <button type="submit" name="simpan" class="btn btn-success">Simpan</button>
     <a href="index.php" class="btn btn-outline-secondary">Kembali</a>
   </form>
-
+<!-- typo php -->
   <?php
   if (isset($_POST['simpan'])) {
     $nama = $_POST['nama_alat'];
