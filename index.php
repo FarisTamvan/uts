@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php 
 include 'config.php';
 if (!isset($_SESSION['login_user'])) {
@@ -65,6 +66,43 @@ if (!isset($_SESSION['login_user'])) {
         <td>
           <a href="edit.php?id=<?= $row['id']; ?>" class="btn btn-outline-warning btn-sm">Edit</a>
           <a href="delete.php?id=<?= $row['id']; ?>" class="btn btn-outline-danger btn-sm" onclick="return confirm('Yakin hapus data ini?')">Hapus</a>
+=======
+<?php
+require 'config.php';
+$result = $mysqli->query("SELECT * FROM devices ORDER BY id DESC");
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Calibration Management</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="container mt-4">
+  <h2 class="mb-4">📋 Device Management</h2>
+  <a href="add_device.php" class="btn btn-primary mb-3">+ Add Device</a>
+  <table class="table table-bordered table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th><th>Name</th><th>Serial</th><th>Model</th><th>Manufacturer</th><th>Status</th><th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php while($row = $result->fetch_assoc()): ?>
+      <tr>
+        <td><?= $row['id'] ?></td>
+        <td><?= h($row['name']) ?></td>
+        <td><?= h($row['serial']) ?></td>
+        <td><?= h($row['model']) ?></td>
+        <td><?= h($row['manufacturer']) ?></td>
+        <td><?= h($row['status']) ?></td>
+        <td>
+          <a href="edit_device.php?id=<?= $row['id'] ?>" class="btn btn-sm btn-warning">Edit</a>
+          <a href="delete_device.php?id=<?= $row['id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Delete this device?')">Delete</a>
+          <a href="view_calibration.php?device_id=<?= $row['id'] ?>" class="btn btn-sm btn-info">Calibration</a>
+>>>>>>> 78e431e (uts)
         </td>
       </tr>
       <?php endwhile; ?>
@@ -72,4 +110,8 @@ if (!isset($_SESSION['login_user'])) {
   </table>
 </div>
 </body>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> 78e431e (uts)
